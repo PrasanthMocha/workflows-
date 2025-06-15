@@ -1,0 +1,231 @@
+Document Title,Healthcare System Test Cases Documentation
+Date Created,2024-03-19
+Author,QA Team
+
+Section,Login Test Cases
+Test Case ID,LOGIN_001
+Test Area,Authentication
+Description,Verify successful login with valid credentials
+Preconditions,"1. Application accessible
+2. User account created
+3. Database operational
+4. Network stable"
+Test Steps,"1. Navigate to login page
+2. Enter valid username
+3. Enter valid password
+4. Click login button
+5. Verify dashboard access
+6. Check session creation"
+Test Data,"Test Users:
+- Username: valid_user@test.com
+- Password: Test@123
+
+Environment:
+- Chrome browser
+- Stable internet
+- Clean cache"
+Expected Results,"1. Login successful
+2. User redirected to dashboard
+3. Correct user profile loaded
+4. Session token generated
+5. Last login time updated
+6. Access logs updated"
+Security Impact,High
+HIPAA Compliance,"- Authentication verification
+- Session security
+- Access logging"
+
+Test Case ID,LOGIN_002
+Test Area,Authentication
+Description,Verify login failure with invalid credentials
+Preconditions,"1. Application accessible
+2. Invalid test data ready
+3. Error logging enabled"
+Test Steps,"1. Navigate to login page
+2. Enter invalid username
+3. Enter invalid password
+4. Click login button
+5. Verify error message
+6. Check failed login count"
+Test Data,"Invalid Credentials:
+- Username: invalid@test.com
+- Password: wrong123
+
+Test Scenarios:
+- Wrong username
+- Wrong password
+- Both wrong"
+Expected Results,"1. Login denied
+2. Error message displayed
+3. No session created
+4. Failed attempt logged
+5. Account status unchanged
+6. Security alert if threshold met"
+Security Impact,High
+HIPAA Compliance,"- Failed login handling
+- Security monitoring
+- Brute force prevention"
+
+Section,Secure Messaging Test Cases
+Test Case ID,SEC_MSG_001
+Test Area,Secure Message Transmission
+Description,Verify message encryption during transmission
+Preconditions,"1. Valid user credentials
+2. SSL/TLS configured
+3. Encryption keys available
+4. Test environment ready"
+Test Steps,"1. Login as healthcare provider
+2. Compose new message with PHI
+3. Send message to patient
+4. Intercept network traffic
+5. Analyze data packets
+6. Verify message receipt"
+Test Data,"Message Content:
+- Patient Name: John Doe
+- DOB: 01/01/1990
+- Diagnosis: Test Condition
+- Lab Results: Test Values
+
+Network Tools:
+- Wireshark for packet analysis
+- SSL/TLS checker"
+Expected Results,"1. Message transmission encrypted (TLS 1.3)
+2. No plaintext PHI in transit
+3. Secure connection established
+4. Message successfully delivered
+5. Encryption headers present
+6. No data leakage in packets"
+Security Impact,Critical
+HIPAA Compliance,"- Encryption verification
+- PHI protection
+- Data in transit security"
+
+Test Case ID,PHI_LOG_001
+Test Area,PHI Redaction in Logs
+Description,Verify PHI is properly redacted in system logs
+Preconditions,"1. Logging system active
+2. Test data prepared
+3. Log access available"
+Test Steps,"1. Send message with PHI
+2. Check application logs
+3. Verify error logs
+4. Check audit logs
+5. Examine browser cache
+6. Review debug logs"
+Test Data,"PHI Test Data:
+- SSN: 123-45-6789
+- MRN: MR123456
+- Phone: 555-0123
+- Email: patient@test.com
+
+Log Locations:
+- App logs
+- Error logs
+- Audit trails"
+Expected Results,"1. PHI redacted in all logs
+2. Only masked values visible
+3. No PHI in browser cache
+4. Debug logs sanitized
+5. Error logs protected
+6. Audit logs secured"
+Security Impact,Critical
+HIPAA Compliance,"- PHI protection
+- Log security
+- Data masking"
+
+Section,Audit Trail Test Cases
+Test Case ID,AUDIT_001
+Test Area,Audit Trail Verification
+Description,Verify comprehensive audit logging
+Preconditions,"1. Audit system active
+2. Test actions defined
+3. Admin access granted"
+Test Steps,"1. Perform various message actions
+2. Login as admin
+3. Search audit logs
+4. Filter by date/user
+5. Export audit report"
+Test Data,"Test Actions:
+- Message send/receive
+- Access attempts
+- PHI views
+- Archive actions
+
+Search Criteria:
+- Date range
+- User ID
+- Action type"
+Expected Results,"1. All actions logged
+2. Timestamps accurate
+3. User IDs recorded
+4. Actions detailed
+5. PHI properly masked
+6. Reports generated"
+Security Impact,High
+HIPAA Compliance,"- Audit compliance
+- Activity tracking
+- Report accuracy"
+
+Section,Archival Test Cases
+Test Case ID,ARCH_001
+Test Area,Message Archival
+Description,Verify message archival functionality
+Preconditions,"1. Messages in system
+2. Archive policy set
+3. Storage configured"
+Test Steps,"1. Select messages to archive
+2. Execute archival process
+3. Verify archived messages
+4. Attempt to access archived
+5. Restore from archive"
+Test Data,"Test Messages:
+- 30+ days old
+- Different types
+- Various sizes
+- With attachments
+
+Archive Settings:
+- Retention: 7 years
+- Auto-archive: 30 days"
+Expected Results,"1. Messages properly archived
+2. Original messages removed
+3. Archive searchable
+4. Data integrity maintained
+5. Restoration successful
+6. Audit trail updated"
+Security Impact,Medium
+HIPAA Compliance,"- Data retention
+- Archive security
+- Recovery process"
+
+Section,Permission Test Cases
+Test Case ID,PERM_001
+Test Area,Permission Management
+Description,Verify role-based access controls
+Preconditions,"1. Different user roles defined
+2. Test accounts ready
+3. Permissions matrix available"
+Test Steps,"1. Test access as different roles
+2. Attempt unauthorized actions
+3. Modify permissions
+4. Verify changes
+5. Check access logs"
+Test Data,"User Roles:
+- Admin
+- Provider
+- Patient
+- Staff
+
+Test Actions:
+- Send message
+- View PHI
+- Access audit"
+Expected Results,"1. Role permissions enforced
+2. Unauthorized access blocked
+3. Changes logged
+4. Access logs accurate
+5. PHI access controlled"
+Security Impact,Critical
+HIPAA Compliance,"- Access control
+- Role enforcement
+- Security logging" 
