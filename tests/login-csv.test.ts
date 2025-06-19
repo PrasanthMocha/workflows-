@@ -36,7 +36,7 @@ test.describe('CSV Driven Login Tests', () => {
                 
                 // Wait for and click on Signup / Login button
                 const loginButton = page.locator("//a[normalize-space(text())='Signup / Login']");
-                await loginButton.waitFor({ state: 'visible' });
+                await loginButton.waitsFor({ state: 'visible' });
                 await loginButton.click();
                 
                 // Wait for login form to be visible
