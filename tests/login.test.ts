@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/loginPage';
-import { DashboardPage } from '../pages/dashboardPage';
+import { LoginPage } from '../src/pages/loginPage1';
+import { DashboardPage } from '../src/pages/dashboardPage';
 
 test.describe('Automation Exercise Login Flow', () => {
     let loginPage: LoginPage;
